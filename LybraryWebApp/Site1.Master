@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="LybraryWebApp.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <%--Boostrap css--%>
+    <link href="Boostrap/CSS/bootstrap.min.css" rel="stylesheet" />
+    <%--DataTable css--%>
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css" />
+    <%--<link href="DataTables/CSS/jquery.dataTables.min.css" rel="stylesheet" />--%>
+    <link href="DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--FontAwesome css--%>
+    <link href="FontAwesome/css/all.css" rel="stylesheet" />
+
+    <link href="CSS/CustomStylesheet.css" rel="stylesheet" />
+    <%--Boostrap js--%>
+    <script src="Boostrap/JS/bootstrap.bundle.min.js"></script>
+    <%--DataTable js--%>
+    <script src="DataTables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+    <%--<script src="DataTables/JS/jquery.dataTables.min.js"></script>--%>
+    <%--FontAwesome js--%>
+    <script src="FontAwesome/js/all.js"></script>
+
+    
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="https://previews.123rf.com/images/ferart88/ferart881810/ferart88181000168/110852206-online-books-logo.jpg" width="50" height="50" />
+                    Library
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                           <a class="nav-link " aria-current="Homepage.aspx" href="#">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                           <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                           <a class="nav-link" href="#">Terms</a>
+                        </li>
+                    </ul>   
+              </div>
+                <div>
+                <ul class="navbar-nav float-right">
+                        <li class="nav-item active">
+                            <asp:LinkButton Class="nav-link" ID="lkbtnViewBooks" runat="server" OnClick="lkbtnViewBooks_Click" >View Books</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                           <asp:LinkButton Class="nav-link" ID="lkbtnUserLogin" runat="server" OnClick="lkbtnUserLogin_Click" >User Login</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                           <asp:LinkButton Class="nav-link" ID="lkbtnSignUp" runat="server" OnClick="lkbtnSignUp_Click" >Sign Up</asp:LinkButton>
+                        </li>
+                         <li class="nav-item active">
+                           <asp:LinkButton Class="nav-link" ID="lkbtnLogout" runat="server" Visible="False" OnClick="lkbtnLogout_Click" >Logout</asp:LinkButton>
+                        </li>
+                         <li class="nav-item active">
+                           <asp:LinkButton Class="nav-link" ID="lkbtnHelloUser" runat="server" Visible="False" >Hello User</asp:LinkButton>
+                        </li>
+                    </ul>
+                   </div>
+            </nav>
+        </div>
+        <%-- Main Content Placeholder--%>
+        <div>
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+             </asp:ContentPlaceHolder>
+        </div>
+        <!-- Footer -->
+        <hr class="rgba-white-light" style="margin: 0 1%;">
+        <footer class="page-footer font-small" style="color:black;background-color:bisque;">
+           <!-- Footer Links -->
+          <div class="container">
+              <!-- Grid row-->
+              <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                 <!-- Grid column -->
+                   <div class="col-md-2 mb-3 col-xs-12 col-sm-12 col-md-12 text-center">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnAdminLogin" runat="server" OnClick="lkbtnAdminLogin_Click" >Admin Login</asp:LinkButton>
+                      </h6>
+                   </div>
+                   <div class="col-md-2 mb-3">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnAuthorManagement" runat="server" OnClick="lkbtnAuthorManagement_Click" Visible="False" >Author Management</asp:LinkButton>
+                      </h6>
+                   </div>
+                   <div class="col-md-2 mb-3">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnPublisherManagement" runat="server" OnClick="lkbtnPublisherManagement_Click" Visible="False" >Publisher Management</asp:LinkButton>
+                      </h6>
+                   </div>
+                   <div class="col-md-2 mb-3">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnBookInventory" runat="server" OnClick="lkbtnBookInventory_Click" Visible="False" >Book Inventory</asp:LinkButton>
+                      </h6>
+                   </div>
+                   <div class="col-md-2 mb-3">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnBookIssuing" runat="server" OnClick="lkbtnBookIssuing_Click" Visible="False" >Book Issuing</asp:LinkButton>
+                      </h6>
+                   </div>
+                   <div class="col-md-2 mb-3">
+                      <h6 class="text-uppercase font-weight-bold">
+                          <asp:LinkButton Class="footerlink" ID="lkbtnMemberManagement" runat="server" OnClick="lkbtnMemberManagement_Click" Visible="False" >Member Management</asp:LinkButton>
+                      </h6>
+                   </div>
+               </div>
+               <!-- Grid row-->
+              <hr class="rgba-white-light" style="margin: 0 5%;">
+           </div>
+           <!-- Copyright -->
+           <div class="footer-copyright text-center py-3">© 2021 Copyright:
+                <a href="#"> Library.com</a>
+           </div>
+           <!-- Copyright -->
+            <hr class="rgba-white-light" style="margin: 0 1%;">
+        </footer>
+        <!-- Footer -->
+    </form>
+</body>
+</html>
